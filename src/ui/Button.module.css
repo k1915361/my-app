@@ -1,0 +1,39 @@
+.button{
+    width: 100px;
+    height: 30px;
+    background-color: #1ab5e0;
+    border-radius: 5px;
+    border: none;
+    color: #282c34;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px;
+    transition-property: all;
+    transition-duration: 0.3s;
+}
+
+.button:hover{
+    background-color: #009dc9;
+    color: #000000;
+}
+
+.button:active{
+    background-color: #61dafb;
+    color: #282c34;
+}
+
+.button:focus{
+    outline: none;
+}   
+
+.button:disabled,
+.button:disabled:hover,
+.button:disabled:active,
+.button:disabled:focus{
+    background-color: #282c34;
+    color: #61dafb;
+    border: 1px solid #61dafb;
+    cursor: not-allowed;
+}
+
+/* which one is clicked state? active? focus? */
