@@ -30,3 +30,31 @@ export const xo = (str: string) : boolean =>
 
 export const sum = (...nums: any[]):number => 
     nums.reduce((a,c) => a + c, 0)
+
+declare global {
+    interface Array<T> {
+        last(): T | undefined;
+    }
+}
+  
+if (!Array.prototype.last) {
+    Array.prototype.last = function () {
+        if (!this.length) {
+            return undefined;
+        }
+        return this.at(-1);
+    };
+}
+
+export const tgl = (val: string, opt: string) => {
+    let opts = opt.split('|')
+    let a = opts[0]
+    let b = opts[1]
+    return val === a ? b : a;
+}
+
+export const elseNull = (val: any, val2: any) => 
+    val === val2 ? null : val2;
+
+export const numbersfrom = (x: number, y: number): number[] => 
+    Array.from({length: y - x + 1}, (_, i) => x + i);

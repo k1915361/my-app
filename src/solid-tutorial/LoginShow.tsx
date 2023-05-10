@@ -1,4 +1,3 @@
-import { render } from 'solid-js/web';
 import { createSignal, Show } from 'solid-js';
 
 export default function LogInOutSwitch() {

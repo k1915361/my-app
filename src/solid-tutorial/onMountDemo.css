@@ -2,7 +2,7 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-gap: 8px;
+    grid-gap: 1px;
 }
 
 figure,

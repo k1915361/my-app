@@ -4,8 +4,8 @@ import Home from './home/Home';
 
 const App: Component = () => {
   return (
-    <div class={styles.App}>
-      <Home name='E'/>
+    <div class={styles.App + ' html'}>
+      <Home name='aaa'/>
       <header class={styles.header}>
       </header>
     </div>

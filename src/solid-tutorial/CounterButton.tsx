@@ -8,6 +8,6 @@ export default function CounterButton() {
     const increment = () => setCount(c => c + 1)
 
     return <button class={styles.button} onClick={increment}>
-        Click Me {count()}
+        <span>Counter {count()}</span>
     </button>;
 }

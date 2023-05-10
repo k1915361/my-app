@@ -1,0 +1,45 @@
+.text{
+    width: fit-content;
+    margin: 1px;
+    padding: 1px;
+    border-radius: 5px;
+}
+.parent{
+    all: unset;
+    color: #195bdf;
+    font-weight: bold;
+    cursor: pointer;
+    /* margin: 10px; */
+    transition-property: color, background-color;
+    transition-duration: 0.1s;
+    word-wrap: unset;
+    font-size: larger;
+}
+
+.parent:hover{
+    text-decoration: underline ;
+    text-decoration-thickness: 2px;
+}
+
+.parent:focus-visible{
+    border-radius: 3px;
+    outline: 3px solid black;
+}
+
+/* .parent:active{
+    color: #cecece;
+}
+
+.parent:focus{
+    color: #b8b8b8;
+}    */
+
+.parent:disabled,
+.parent:disabled:hover,
+.parent:disabled:active,
+.parent:disabled:focus{
+    color: #61dafb;
+    border: 1px solid #61dafb;
+    cursor: not-allowed;
+}
+

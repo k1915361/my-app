@@ -1,4 +1,4 @@
-import { findBiggestInt, findSmallestInt, invert, numberToString, oddOrEven, reverseSeq, rowSumOddNumbers, simpleMultiplication, squareSum, sum, xo} from './helper'
+import { findBiggestInt, findSmallestInt, identity, invert, numberToString, oddOrEven, reverseSeq, rowSumOddNumbers, simpleMultiplication, squareSum, sum, xo} from './helper'
 import { describe, expect, it} from 'vitest'
 
 describe('helper', () => {
@@ -70,5 +70,20 @@ describe('helper', () => {
     })
     it('should length be 4', () => {
         expect('xxx'.split('x').length).toBe(4)
+    })
+    it('should return 3 as a last item in array', () => {
+        expect([1,2,3].at(-1)).toBe(3)
+    })
+    it('should return 3 as last item', () => {
+        expect([1,2,3].last()).toBe(3)
+    })
+    it('should match string', () => {
+        expect(typeof "str").toBe("string")
+    })
+    it('should match number', () => {
+        expect(typeof 11).toBe("number")
+    })
+    it('should match number[]', () => {
+        expect(typeof [1,2,3]).toEqual("object")
     })
 })
