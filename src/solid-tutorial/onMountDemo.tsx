@@ -1,6 +1,7 @@
 import { createSignal, onMount, For, createEffect } from "solid-js";
-import "./onMountDemo.css";
+import "./onPhotosMount.css";
 import '../ui/scrollUiFix.css';
+import ScrollFixUi from "../ui/scrollFixUi";
 
 export default function OnMountDemo() {
     const [photos, setPhotos] = createSignal([]);
@@ -10,35 +11,6 @@ export default function OnMountDemo() {
     onMount(async () => {
         const res = await fetch(`https://jsonplaceholder.typicode.com/photos?_limit=10`);
         setPhotos(await res.json());
-    });
-    function handleMouseMove(event: any) {
-        setPos({
-          x: event.clientX - event.target.offsetLeft,
-          y: event.clientY - event.target.offsetTop
-        });
-    }
-    
-    const handleScroll = (e) => {
-        let rect = document.querySelector('.photos')?.getBoundingClientRect();
-        setPos({
-            x: window.scrollX,
-            y: window.scrollY
-        });
-        if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-            let idea = 'fetchNextData()';
-            console.log('bottom')
-        }
-        if (rect.bottom <= 0) {
-            setPos({...pos(), y: 0})
-        }
-        if (rect.top >= 10) {
-            setPos({...pos(), y: 0})
-        } 
-        console.log(window.scrollY, rect.top)
-    };
-
-    createEffect(() => {
-        window.addEventListener("scroll", handleScroll);
     });
 
     const isFixed = () =>
@@ -52,8 +24,12 @@ export default function OnMountDemo() {
             max="10"
             value={selected()}
             onInput={e => setSelected(e.currentTarget.value)}
-            // align this to the middle of window
-            style={{ position:isFixed(),top: 0, left: '36%' }}
+            class='float'
+            style={{ 
+                position:isFixed(),
+                top: 0, 
+                left: '0%',
+            }}
         />
         <div style={{}}>
             <div class="photos" style={{ 'grid-template-columns': `repeat(${selected()}, 1fr)` }}>
@@ -65,8 +41,7 @@ export default function OnMountDemo() {
                 }</For>
             </div>
         </div>
-        {pos().y}
-
+        <ScrollFixUi setY={y=>setPos({...pos(), y:y})} y={()=>pos().y} selector='.photos'/>
     </div>;
 
 }

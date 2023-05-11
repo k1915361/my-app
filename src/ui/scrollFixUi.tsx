@@ -1,31 +1,27 @@
-import { createSignal, For, createEffect } from "solid-js";
+import { createEffect } from "solid-js";
 import '../ui/scrollUiFix.css';
 
 export default function ScrollFixUi(props: any) {
-    const [pos, setPos] = createSignal({x: 0, y: 0});
-    const c = children(() => props.children);
-    createEffect(() => c().forEach(item => item.style = props.style));
+    const {y, setY, selector} = props
     
-    const handleScroll = (e) => {
-        let rect = document.querySelector('.photos')?.getBoundingClientRect();
+    const handleScroll = (e) => { 
+        let rect = document.querySelector(selector)?.getBoundingClientRect();
+        if (!rect) {
+            console.warn(`the element selector ${selector} is not found`)
+            return ''
+        }
+        setY( // this is not relevant but for some reason scroll listener does not work properly without this
+            window.scrollY
+        );
         if (rect.bottom <= 0) {
-            setPos({...pos(), y: 0})
+            setY(0)
         }
         if (rect.top >= 10) {
-            setPos({...pos(), y: 0})
+            setY(y)
         }
     };
 
     createEffect(() => {
         window.addEventListener("scroll", handleScroll);
     });
-
-    const isFixed = () =>
-        pos().y > 0 ? 'fixed' : ''
-
-    return <div >
-        {c()}
-        {props.children.style = { position:isFixed(),top: 0, left: '36%' }}
-    </div>;
-
 }
