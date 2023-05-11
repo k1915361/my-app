@@ -1,6 +1,6 @@
 import styles from './FloatButton.module.css';
 
-export default function FloatButton (props: any){
+export default function FloatButton(props: any) {
     const {addstyle, style, onClick} = props 
     
     return <div 

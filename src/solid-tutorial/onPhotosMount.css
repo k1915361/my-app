@@ -1,7 +1,7 @@
 *{
-    /* transition-property: all;
-    transition-duration: 3.1s; */
-    transition: all 3.5s;
+    transition-property: all;
+    transition-duration: 0s;
+    transition: all 0.1s;
 }
 
 .photos {
@@ -17,12 +17,28 @@ img {
     margin: 0;
 }
 
-.float::before {
-    transition-property: color, background-color, position, top, left;
-    transition-duration: 3.1s;
+.whitebackground{
+    background-color: #fff;
 }
 
-.float::after {
-    transition-property: color, background-color, position, top, left;
-    transition-duration: 3.1s;
+.photocaption{
+    font-size: 8px;
+    font-weight: lighter;
+}
+
+.shadowunder{
+    box-shadow: 0 4px .5em -2px rgba(0, 0, 0, 0.5);
+}
+
+.fixedtop{
+    position: 'fixed';
+    top: 0;
+}
+
+html:not([data-scroll='0']) {
+    padding-top: 0em;
+}
+
+html:not([data-scroll='0']) header {
+    position: fixed;
 }

@@ -1,9 +1,8 @@
-import { createSignal, Suspense, Switch, Match, useTransition } from "solid-js";
 import "./styles.css";
 
-export const Tab = ({updateTab, tab:tabb, text, number}) => {
+export const Tab = ({setTab, selected, text, number}) => {
 
-  return <li classList={{ selected: tabb() === number }} 
-    onClick={updateTab(number)}
+  return <li classList={{ selected: selected() === number }} 
+    onClick={setTab(number)}
     >{text}</li>
 };

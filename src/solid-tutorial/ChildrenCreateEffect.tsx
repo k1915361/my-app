@@ -1,6 +1,7 @@
 import { createSignal, For } from "solid-js";
 import ColoredList from "./colored-list";
 import { tgl } from "../utility/helper";
+import { Button } from "../ui/Button";
 
 export default function ChildrenCreateEffect() {
     const [color, setColor] = createSignal("purple");
@@ -11,7 +12,7 @@ export default function ChildrenCreateEffect() {
                 <div>{item}</div>}
             </For>
         </ColoredList>
-        <button onClick={() => setColor(tgl(color(), "purple | green"))}
-            >Set Color</button>
+        <Button onClick={() => setColor(tgl(color(), "purple | green"))}
+            >Set Color</Button>
     </>;
 }

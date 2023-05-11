@@ -6,8 +6,6 @@ const App: Component = () => {
   return (
     <div class={styles.App + ' html'}>
       <Home name='aaa'/>
-      <header class={styles.header}>
-      </header>
     </div>
   );
 };

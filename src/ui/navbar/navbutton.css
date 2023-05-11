@@ -1,0 +1,41 @@
+.navbutton{
+    width: 200px;
+    height: 30px;
+    border-radius: 15px;
+    border: none;
+    background-color: transparent;
+    color: #797979;
+    font-weight: 100;
+    cursor: pointer;
+    margin: 10px;
+    transition-property: color, background-color;
+    transition-duration: 0.1s;
+}
+
+.navbutton:hover{
+    background-color: #d6d6d6;
+}
+
+.navbutton:active{
+    background-color: #8ea4e2;
+}
+
+.navbutton:focus-visible{
+    outline: 3px solid black;
+}
+
+.navbutton:disabled,
+.navbutton:disabled:hover,
+.navbutton:disabled:active,
+.navbutton:disabled:focus{
+    background-color: #282c34;
+    color: #acacac;
+    cursor: not-allowed;
+}
+
+.navbutton.selected{
+}
+
+.allunset{
+    all:unset;
+}

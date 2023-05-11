@@ -10,9 +10,8 @@ export default function ScrollFixUi(props: any) {
             console.warn(`the element selector ${selector} is not found`)
             return ''
         }
-        setY( // this is not relevant but for some reason scroll listener does not work properly without this
-            window.scrollY
-        );
+        let comment = 'below line is not relevant but scroll listener does not work properly without this'
+        setY( window.scrollY ); 
         if (rect.bottom <= 0) {
             setY(0)
         }

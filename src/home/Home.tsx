@@ -1,30 +1,31 @@
-import Card from "../ui/card";
-import CounterButton from "../solid-tutorial/CounterButton";
-import Header from "../ui/header";
+// import Header from "../ui/header";
+import Header from "../ui/header/header";
 import FloatButtonScroll from "../ui/floatbuttonscroll";
-import OnMountDemo from "../solid-tutorial/onMountDemo";
-import { Link } from "../ui/textlink";
+import OnMountDemo from "../solid-tutorial/onPhotosMount";
 import Modal from "../solid-tutorial/bindings/directives/DirectivesModal";
 import ChildrenCreateEffect from "../solid-tutorial/ChildrenCreateEffect";
-import { TransitionsTabs } from "../solid-tutorial/transitions/main";
+import { TransitionsTabs } from "../solid-tutorial/transitions/transitionTabs";
+import BottomNavbar from "../ui/navbar/bottomNavBar";
 
 export default function Home(props: {name: string}) {
     const {name} = props
     
     return <div>
         <Header />
-        <OnMountDemo />
-        <br/><br/>
-        <br/><br/>
-        <br/>
-        <br />
-        <TransitionsTabs />
-        <Modal />
-        <Card />
-        <CounterButton />
-        <Link text='button'/>
-        <p>Welcome {name}</p>
-        <FloatButtonScroll />
-        <ChildrenCreateEffect />
+        <main>
+            <BottomNavbar />
+            <OnMountDemo />
+            <br/>
+            <TransitionsTabs />
+            <Modal />
+            <FloatButtonScroll />
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <ChildrenCreateEffect />
+        </main>
     </div>
 }

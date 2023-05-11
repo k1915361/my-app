@@ -1,0 +1,69 @@
+.iconbox{
+    cursor: pointer;
+    display: grid;
+    background-color: #f0f8ff;
+}
+
+.icon{
+    justify-self: center;
+    width: 50px;
+    border-radius: 15px;
+    border: none;
+    color: #797979;
+    cursor: pointer;
+    transition-property: color, background-color;
+    transition-duration: 0.1s;
+    padding: -10px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-bottom: -5px;
+    padding: -20px;
+    margin: -4px;
+    margin-bottom: 2px;
+}
+
+/* 
+    .a > .b {} 
+    .a + .b {} 
+    .a   .b {} 
+    .a ~ .b {} 
+    > b directly inside a 
+    + b next to a 
+      b somewhere inside a 
+    ~ b sibilng of a  
+*/ 
+
+.iconbox:hover .icon:not(.selected) { background-color: rgb(218, 218, 218); }
+
+.icon:hover{
+    background-color: #d6d6d6;
+}
+
+.icon:active{
+    background-color: #8ea4e2;
+}
+
+.icon:focus-visible{
+    outline: 3px solid black;
+}
+
+.icon:disabled,
+.icon:disabled:hover,
+.icon:disabled:active,
+.icon:disabled:focus{
+    background-color: #282c34;
+    color: #acacac;
+    cursor: not-allowed;
+}
+
+.icon.selected{
+}
+
+.icon.selected{
+    background-color: #6cc4ff7c;
+    color: black;
+}
+
+.grid{
+    display: grid;
+}

@@ -1,7 +1,6 @@
 import { createSignal, onMount, For, createEffect } from "solid-js";
 import "./onPhotosMount.css";
-import '../ui/scrollUiFix.css';
-import ScrollFixUi from "../ui/scrollFixUi";
+import ScrollFixUi from "../ui/scrollUiFix";
 
 export default function OnMountDemo() {
     const [photos, setPhotos] = createSignal([]);
@@ -21,22 +20,18 @@ export default function OnMountDemo() {
         <input
             type="range"
             min="1"
-            max="10"
             value={selected()}
             onInput={e => setSelected(e.currentTarget.value)}
-            class='float'
-            style={{ 
-                position:isFixed(),
-                top: 0, 
-                left: '0%',
-            }}
+            class='fixedtop'
+            // classList={{fixedtop: pos().y > 0}}
+            style={{ position:isFixed() }}
         />
         <div style={{}}>
             <div class="photos" style={{ 'grid-template-columns': `repeat(${selected()}, 1fr)` }}>
                 <For each={photos()} fallback={<p>Loading...</p>}>{photo =>
                     <figure>
                         <img src={photo.thumbnailUrl} alt={photo.title} elementtiming={""} fetchpriority={"high"} />
-                        <figcaption style={{ "font-size": '7px' }}>{photo.title}</figcaption>
+                        <figcaption class='photocaption' >{photo.title}</figcaption>
                     </figure>
                 }</For>
             </div>

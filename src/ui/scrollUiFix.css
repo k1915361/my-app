@@ -9,6 +9,5 @@ html:not([data-scroll='0']) header {
 .fixedtop{
     position: 'fixed';
     top: 0;
-    background-color: #fff;
-    box-shadow: 0 0 .5em rgba(0, 0, 0, .5);
+    left: 0;
 }
