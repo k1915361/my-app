@@ -1,5 +1,5 @@
 import { createEffect, createSignal } from 'solid-js';
-import './style.css';
+import './header.css';
 
 export default function Header() {
     const [y, setY] = createSignal(0);
@@ -12,5 +12,6 @@ export default function Header() {
         window.addEventListener("scroll", handleScroll);
     });
 
-    return <header classList={{fixed: y() !== 0}}>header...</header>
+    return <header classList={{fixed: y() !== 0}}
+        >header...</header>
 }

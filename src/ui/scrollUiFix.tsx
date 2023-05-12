@@ -12,10 +12,10 @@ export default function ScrollFixUi(props: any) {
         }
         let comment = 'below line is not relevant but scroll listener does not work properly without this'
         setY( window.scrollY ); 
-        if (rect.bottom <= 0) {
+        if (rect.bottom <= 100) {
             setY(0)
         }
-        if (rect.top >= 10) {
+        if (rect.top >= 100) {
             setY(y)
         }
     };

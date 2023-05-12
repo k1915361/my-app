@@ -1,0 +1,22 @@
+header {
+    width: 100%;
+    min-height: 1em;
+    height: 2em;
+    box-sizing: border-box;
+    transition: background-color .25s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+    background-color: aliceblue;
+    padding: 1px;
+    padding-left: 10px;
+    flex-direction: column;
+    font-size: calc(10px + 2vmin);
+}
+
+html:not([data-scroll='0']) header {
+    border-bottom: 1px solid lightgray;
+    position: fixed;
+    top: 0;
+}

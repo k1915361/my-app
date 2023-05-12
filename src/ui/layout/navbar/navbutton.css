@@ -32,10 +32,3 @@
     color: #acacac;
     cursor: not-allowed;
 }
-
-.navbutton.selected{
-}
-
-.allunset{
-    all:unset;
-}

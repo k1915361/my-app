@@ -1,11 +1,11 @@
 .Bottom{
     position: fixed;
     bottom: 0;
-    /* flex items to use the whole horizontal width */
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     border-top: 1px solid lightgray;
+    gap: 40px;
     width: 100%;
     max-width: 100%;
     background-color: aliceblue;

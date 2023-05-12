@@ -1,5 +1,17 @@
-html {
-    background: #e74c3c;
+
+
+input {
+    -webkit-appearance: none;
+    width: 100%;
+    max-width: 99%;
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
 form {
@@ -10,11 +22,11 @@ form {
 
 input[type="range"] {
     -webkit-appearance: none;
-    width: 160px;
+    width: 300px;
     height: 20px;
     margin: 10px 50px;
-    background: linear-gradient(to right, #9A2720 0%, #9A2720 100%);
-    background-size: 150px 10px;
+    background: linear-gradient(to right, #7c7c7c 0%, #8d8d8d 100%);
+    background-size: 99% 10px;
     background-position: center;
     background-repeat: no-repeat;
     overflow: hidden;
@@ -29,7 +41,7 @@ input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: 20px;
     height: 20px;
-    background: #F26B5E;
+    background: #0a58ff;
     position: relative;
     z-index: 3;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
@@ -37,7 +49,7 @@ input[type="range"]::-webkit-slider-thumb {
 
 input[type="range"]::-webkit-slider-thumb:after {
     content: " ";
-    width: 160px;
+    width: 200px;
     height: 10px;
     position: absolute;
     z-index: 1;
@@ -45,13 +57,4 @@ input[type="range"]::-webkit-slider-thumb:after {
     top: 5px;
     background: #ff5b32;
     background: linear-gradient(to right, #f088fc 1%, #AC6CFF 70%);
-}
-
-p {
-    width: 100%;
-    text-align: center;
-    color: white;
-    font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', Roboto, Arial, Sans-serif;
-    font-size: 32px;
-    margin-top: 30px;
 }

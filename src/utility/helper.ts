@@ -1,3 +1,5 @@
+import { JSX } from "solid-js/jsx-runtime";
+
 export const simpleMultiplication = (num: number): number =>
     num * (num % 2 === 0 ? 8 : 9);
 

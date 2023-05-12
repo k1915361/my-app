@@ -22,23 +22,3 @@
         transform: rotate(360deg);
     }
 }
-
-main {
-    padding: 0 0em;
-    padding-top: 100px;
-}
-
-input {
-    /* input type range animate slider moving interaction more smoothly */
-    -webkit-appearance: none;
-    width: 100%;
-    max-width: 99%;
-    height: 25px;
-    background: #d3d3d3;
-    outline: none;
-    opacity: 0.7;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}

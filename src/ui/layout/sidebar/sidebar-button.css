@@ -1,0 +1,64 @@
+.sidebar button {
+    background: none;
+}
+
+.sidebar-iconbox {
+    cursor: pointer;
+    display: grid;
+    margin-block: 17px;
+}
+
+.sidebar-iconbox .text {
+    font-size: 60%;
+    /* text-overflow: ellipsis; */
+    overflow: hidden;
+}
+
+.sidebar-icon {
+    justify-self: center;
+    width: 35px;
+    border-radius: 15px;
+    border: none;
+    color: #797979;
+    cursor: pointer;
+    transition-property: color, background-color;
+    transition-duration: 0.2s;
+    padding: 0px;
+    padding-block: 4px;
+}
+
+.sidebar-iconbox:hover .sidebar-icon:not(.selected) {
+    background-color: rgb(218, 218, 218);
+}
+
+.sidebar-icon:hover {
+    background-color: #d6d6d6;
+}
+
+.sidebar-icon:active {
+    background-color: #8ea4e2;
+}
+
+.sidebar-icon:focus-visible {
+    outline: 3px solid black;
+}
+
+.sidebar-icon:disabled,
+.sidebar-icon:disabled:hover,
+.sidebar-icon:disabled:active,
+.sidebar-icon:disabled:focus {
+    background-color: #282c34;
+    color: #acacac;
+    cursor: not-allowed;
+}
+
+.sidebar-icon.selected {}
+
+.sidebar-icon.selected {
+    background-color: #6cc4ff7c;
+    color: black;
+}
+
+.grid {
+    display: grid;
+}
