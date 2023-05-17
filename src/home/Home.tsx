@@ -7,32 +7,28 @@ import { TransitionsTabs } from "../solid-tutorial/transitions/transitionTabs";
 import BottomNavbar from "../ui/layout/navbar/bottomNavBar";
 import ViewWidth from "../ui/viewwidth";
 import './layout.css';
-import Sidebar from "../ui/layout/sidebar/sidebar";
+import Sidebar from "../ui/layout/sidebar/sidebar-flat/sidebar";
+import SideBarLeft from "../ui/layout/sidebar/left/left";
+import { numbersfrom } from "../utility/helper";
 
 export default function Home() {
-    return <div class='container'>
-        <Header />
-        <aside class='leftbar'>
+    return <div class=''>
+        {/* <Header /> */}
+        {/* <aside class='leftbar'>
             <Sidebar />
-        </aside>
-        <main class='main'>
-            <ViewWidth />
-            <OnPhotosMount />
-            <br />
-            <TransitionsTabs />
-            <Modal />
-            <FloatButtonScroll />
-            <ChildrenCreateEffect />
-            <br /><br /><br />
-            <br /><br /><br />
-            <br /><br /><br />
-            <br /><br /><br />
-            <p>end of main</p>
-        </main>
-        <aside class='rightbar'>
-            <h2>right panel</h2>
-        </aside>
-        <footer class='footer'>footer</footer>
-        <BottomNavbar />
+        </aside> */}
+        <ViewWidth />
+        <OnPhotosMount />
+        <br />
+        <TransitionsTabs />
+        <Modal />
+        <FloatButtonScroll />
+        <ChildrenCreateEffect />
+        <br /><br /><br />
+        <br /><br /><br />
+        <br /><br /><br />
+        <br /><br /><br />
+        <p>end</p>
+        {/* <BottomNavbar />  */}
     </div>
 }

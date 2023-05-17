@@ -11,3 +11,6 @@ ctrl k r    view shortcuts
 chrome shortcuts
 shift scrollbar click       scroll without animation
 shift select multiple tabs   
+
+themes
+github dark dimmed

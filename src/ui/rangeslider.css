@@ -1,32 +1,9 @@
-
-
-input {
-    -webkit-appearance: none;
-    width: 100%;
-    max-width: 99%;
-    height: 25px;
-    background: #d3d3d3;
-    outline: none;
-    opacity: 0.7;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-form {
-    width: 260px;
-    height: 260px;
-    margin: 0 auto;
-}
-
 input[type="range"] {
     -webkit-appearance: none;
-    width: 300px;
     height: 20px;
-    margin: 10px 50px;
+    margin: 10px 0px;
     background: linear-gradient(to right, #7c7c7c 0%, #8d8d8d 100%);
-    background-size: 99% 10px;
+    background-size: 99% 5px;
     background-position: center;
     background-repeat: no-repeat;
     overflow: hidden;
