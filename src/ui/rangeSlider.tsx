@@ -1,6 +1,10 @@
 import './rangeslider.css'
-export default function RangeSlider() {
+export default function RangeSlider({resetClass = false, class: clss = ''}) {
     return <form>
-        <input type="range" value="50" />
+        <input 
+            class={resetClass ? '' : clss} 
+            type="range" 
+            value="50" 
+        />
     </form>
 } 

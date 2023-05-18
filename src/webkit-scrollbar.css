@@ -1,0 +1,18 @@
+html {
+    --scrollbarBG: #ffffff;
+    --thumbBG: #a7a7a7;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--scrollbarBG);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--thumbBG);
+    border-radius: 0px;
+    border: 0px solid var(--scrollbarBG);
+}

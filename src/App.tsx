@@ -4,14 +4,18 @@ import Home from './home/Home';
 import './ui/helper/helper.css';
 import SideBarLeft from './ui/layout/sidebar/left/left';
 import { numbersfrom } from './utility/helper';
+import App_UseCloudinary from './utility/App-useCloudinary';
+import Home_Cloudinary from './ui/cloudinary';
+import DropImage from './ui/dropImage';
 
 const App: Component = () => {
     return <div class="container full-height">
     <div class="header"><p>header</p></div>
     <div class="left" > <SideBarLeft /></div>
     <div class="main">
-        {numbersfrom(1, 30).map((n) => 
-                <div class="left-item"><p>{n}</p></div>)}
+        <App_UseCloudinary />
+        <Home_Cloudinary />
+        <DropImage />
         <Home />
     </div>
     <div class="right"><p>right</p></div>

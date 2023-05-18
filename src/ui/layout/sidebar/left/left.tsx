@@ -4,10 +4,12 @@ import RangeSlider from "../../../rangeSlider";
 export default function SideBarLeft() {
 
     return <div >
-        <RangeSlider />
+        <div class=' borderbottom '>
+            <RangeSlider />
+        </div>
     {
-        numbersfrom(1, 30).map((n) =>
-            <div class="left-item borderbottom" > <p>{ n }</p></div >)
+        ...numbersfrom(1, 30).map((n) =>
+            <div class="borderbottom" > <p>{ n }</p></div >)
     }
     </div>
 }

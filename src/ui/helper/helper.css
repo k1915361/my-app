@@ -58,7 +58,7 @@ strike {
 .right,
 .main {
     background-color: white;
-    overflow: overlay;
+    overflow: auto;
 }
 
 .main {
