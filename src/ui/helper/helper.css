@@ -50,7 +50,7 @@ strike {
         "header header header"
         "left main right"
         "footer footer footer";
-    background-color: white;
+    background-color: grey;
     height: 100%;
 }
 
@@ -70,7 +70,7 @@ strike {
 .right,
 .header,
 .main {
-    background-color: rgb(223, 223, 223);
+    background-color: white;
 }
 
 .footer {
