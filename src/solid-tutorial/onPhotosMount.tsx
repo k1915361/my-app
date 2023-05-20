@@ -1,7 +1,7 @@
 import { createSignal, onMount, For } from "solid-js";
 import "./onPhotosMount.css";
-import "../ui/rangeSlider.css";
 import ScrollFixUi from "../ui/scrollUiFix";
+import RangeSlider from "../ui/input/range-slider/rangeSlider";
 
 export default function OnPhotosMount() {
     const [photos, setPhotos] = createSignal([]);
@@ -15,12 +15,11 @@ export default function OnPhotosMount() {
 
     return <div >
         <h2>Photo album</h2>
-        <input
-            type="range"
-            min="1"
+        <RangeSlider
+            min='1'
             value={selected()}
             onInput={e => setSelected(e.currentTarget.value)}
-            class={ pos().y > 0 ? ' sliderfixedtop ' : '' }
+            clss={pos().y > 0 ? ' sliderfixedtop ' : ''}
         />
         <div >
             <div class="photos" style={{ 'grid-template-columns': `repeat(${selected()}, 1fr)` }}>

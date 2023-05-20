@@ -1,0 +1,108 @@
+.container {
+    display: grid;
+    grid-template-columns: 0.6fr 1.8fr 0.6fr;
+    grid-template-rows: 0.2fr 2.6fr 0.2fr;
+    gap: 1px 1px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "header header header"
+        "left main right"
+        "left main right"
+        ;
+    background-color: rgb(175, 175, 175);
+    height: 100%;
+}
+
+.sidebar-left,
+.sidebar-right,
+.main {
+    background-color: white;
+    overflow: auto;
+}
+
+.main {
+    background-color: white;
+}
+
+.sidebar-left,
+.sidebar-right,
+.header,
+.main {
+    background-color: rgb(246, 247, 248);
+}
+
+.main {
+    background-color: rgb(241, 241, 241);
+}
+
+.sidebar-left {
+    grid-area: left;
+}
+
+.sidebar-right {
+    grid-area: right;
+}
+
+.header {
+    grid-area: header;
+}
+
+.main {
+    grid-area: main;
+}
+
+
+@media screen and (max-width: 820px) {
+    .container {
+        grid-template-columns: 1fr 20fr;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .container {
+        grid-template-columns: 1fr
+    }
+    .Bottom{
+        justify-content: none;
+    }
+}
+
+
+/* 
+alternative way of layout
+
+.header {
+    grid-area: header;
+}
+
+.main {
+    grid-area: main;
+}
+
+.sidebar-left {
+    grid-area: sidebar-left;
+}
+
+.sidebar-right {
+    grid-area: sidebar-right;
+}
+
+.footer {
+    grid-area: footer;
+}
+
+.sidebar-left,
+.sidebar-right {
+    padding-top: 100px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 20fr 20fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "header header header header"
+        "sidebar-left main main sidebar-right"
+        "footer footer footer footer";
+}
+*/

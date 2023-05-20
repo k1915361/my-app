@@ -1,52 +1,43 @@
 import { createSignal } from 'solid-js';
 import './dropImage.css';
+import { deleteOne, handleFiles, toUrl } from '../utility/helper';
 
 export default function DropImage() {
     const [images, setImages] = createSignal([])
 
     function handleInputChange(e) {
-        const files = e.target.files
-        console.log('files',files)
-        setImages([...images(), ...files])
-    }
-
-    function handleImageDrop(e) {
         e.preventDefault()
-        const files = e.dataTransfer.files
-        for (let i = 0; i < files.length; i++) {
-            if (!files[i].type.match("image")) continue;
-
-            if (images().every(image => image.name !== files[i].name))
-                setImages([...images(), files[i]])
-        }
+        const newFiles = e.target.files
+        handleFiles(images(), newFiles, 'image', setImages)
     }
 
-    function deleteImage(index: number) {
-        setImages(i => i.filter((i, idx) => idx !== index))
+    function handleFileDrop(e) {
+        e.preventDefault()
+        const newFiles = e.dataTransfer.files
+        handleFiles(images(), newFiles, 'image', setImages)
     }
 
     return <>
         <div class="input-div">
             <p>Drag & drop photos here or <strong>Browse</strong></p>
             <input
-                onInputChange={handleInputChange}
-                onDrop={handleImageDrop}
+                onDrop={handleFileDrop}
                 onChange={handleInputChange}
                 type="file"
                 class="file"
-                multiple="multiple"
+                multiple={true}
                 accept="image/jpeg, image/png, image/jpg, image/webp, image/avif"
             />
 
         </div>
         <output>
-            {images().length && images().map((image, index) =>
+            {images().length && images().map((img, idx) =>
                 <div class="image">
-                    <img src={URL.createObjectURL(image)} alt="image" />
-                    <span onClick={()=>deleteImage(index)}>&times;</span>
+                    <img src={toUrl(img)} alt="image" />
+                    <span onClick={()=>setImages(ls => deleteOne(ls, idx))}
+                        >&times;</span>
                 </div>
             )}
-            {images().length}
         </output>
     </>
 }

@@ -13,11 +13,9 @@ export default function Home_Cloudinary() {
         <div >
             <div >
                 <h1 >
-                    SolidJS &amp; Cloudinary
+                    Cloudinary
                 </h1>
                 <img 
-                    width='600'
-                    height='400'
                     src={
                         cld.image('cld-sample-5')
                         .quality('auto')

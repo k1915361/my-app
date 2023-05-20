@@ -40,57 +40,22 @@ strike {
     height: 100%;
 }
 
-.container {
-    display: grid;
-    grid-template-columns: 0.6fr 1.8fr 0.6fr;
-    grid-template-rows: 0.2fr 2.6fr 0.2fr;
-    gap: 1px 1px;
-    grid-auto-flow: row;
-    grid-template-areas:
-        "header header header"
-        "left main right"
-        "footer footer footer";
-    background-color: grey;
-    height: 100%;
-}
-
-.left,
-.right,
-.main {
-    background-color: white;
+.overflow {
     overflow: auto;
 }
 
-.main {
-    background-color: white;
-}
-
-.footer,
-.left,
-.right,
-.header,
-.main {
-    background-color: white;
-}
-
-.footer {
-    grid-area: footer;
-}
-
 .left {
-    grid-area: left;
+    left: 0;
 }
 
 .right {
-    grid-area: right;
+    right: 0;
 }
 
-.header {
-    grid-area: header;
+.top {
+    top: 0;
 }
 
-.main {
-    grid-area: main;
+.bottom {
+    bottom: 0;
 }
-
-

@@ -3,6 +3,12 @@
     margin: 0;
 }
 
+* p {
+    margin-left: 5px;
+    border-left: 0px;
+    padding-left: 0px;
+}
+
 html,
 #root,
 body {
@@ -25,7 +31,7 @@ code {
 
 @media (prefers-color-scheme: dark) {
     img {
-        opacity: .75;
+        opacity: 1.;
         transition: opacity .5s ease-in-out;
     }
 

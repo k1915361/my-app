@@ -1,5 +1,9 @@
 import './header.css';
 
 export default function Header() {
-    return <header>header</header>
+    return <div>
+        <h1>
+            Image to Data Charts
+        </h1>
+    </div>
 }
