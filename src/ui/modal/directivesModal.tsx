@@ -1,7 +1,7 @@
 import { createSignal, Show } from "solid-js";
 import ClickOutside from "./click-outside";
-import "./Modal.css";
-import { Button } from "../../../ui/Button";
+import "./modal.css";
+import { Button } from "../Button";
 
 export default function Modal() {
   const [show, setShow] = createSignal(false);

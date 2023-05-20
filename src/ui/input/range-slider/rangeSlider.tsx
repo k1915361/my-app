@@ -3,7 +3,7 @@ import './rangeslider.css'
 export default function RangeSlider({class: classs, min, value, clss, onInput, max}) {
     return <form>
         <input 
-            class={classs || '  '}
+            class={classs || ' range-slider '}
             type="range" 
             value={value} 
             min={min}

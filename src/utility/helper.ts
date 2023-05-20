@@ -1,4 +1,5 @@
 import { JSX } from "solid-js/jsx-runtime";
+import { handleToast } from "../ui/toast/toast-helper";
 
 export const simpleMultiplication = (num: number): number =>
     num * (num % 2 === 0 ? 8 : 9);
@@ -48,11 +49,11 @@ if (!Array.prototype.last) {
     };
 }
 
-export const tgl = (val: string, opt: string) => {
-    let opts = opt.split('|')
-    let a = opts[0]
-    let b = opts[1]
-    return val === a ? b : a;
+export const tglSet = (set: Function, options: string) => {
+    options = options.split('|')
+    let a = options[0]
+    let b = options[1]
+    set(val => val === a ? b : a);
 }
 
 export const elseNull = (val: any, val2: any) =>
@@ -75,13 +76,16 @@ export function handleFiles(images, newFiles, type = 'image',setImages =(e)=>'')
     let result = []; 
     for (let i = 0; i < newFiles.length; i++) {
         let file = newFiles[i]; console.log('for in', file) 
-        if (!isFileType(file,type)) continue;
+        if (!isFileType(file,type)) {
+            handleToast()
+            continue;
+        }
     
         if (images.every(i => i.name !== file.name)){
             result.push(file) 
         }
-    } console.log(images, newFiles, result)
-    if (result === []) return images
+    } 
+    if (result.length === 0) return images
     setImages([...images, ...result])
     return result
 } 
@@ -94,3 +98,6 @@ export const toUrl = (img) =>
 
 export const intersection = (arr1, arr2) => 
     arr1.filter(x => arr2.includes(x));
+
+export const isTopOfDiv = (ref) =>
+    ref.scrollTop === (ref.scrollHeight - ref.offsetHeight);

@@ -1,7 +1,7 @@
 import { createSignal, onMount, For } from "solid-js";
 import "./onPhotosMount.css";
-import ScrollFixUi from "../ui/scrollUiFix";
-import RangeSlider from "../ui/input/range-slider/rangeSlider";
+import ScrollFixUi from "../../scrollUiFix";
+import RangeSlider from "../../input/range-slider/rangeSlider";
 
 export default function OnPhotosMount() {
     const [photos, setPhotos] = createSignal([]);

@@ -5,6 +5,7 @@ export const Button = (props: any) => {
     
     return <button 
         onClick={onClick}
+        style={style}
         class={styles.button || 'button'}>
         {name}
         <div>{children}</div>

@@ -1,19 +1,23 @@
 import { createSignal } from 'solid-js';
 import './dropImage.css';
 import { deleteOne, handleFiles, toUrl } from '../utility/helper';
+import Toast from './toast/toast';
 
 export default function DropImage() {
     const [images, setImages] = createSignal([])
 
     function handleInputChange(e) {
-        e.preventDefault()
         const newFiles = e.target.files
-        handleFiles(images(), newFiles, 'image', setImages)
+        handleFiless(newFiles)
     }
 
     function handleFileDrop(e) {
         e.preventDefault()
         const newFiles = e.dataTransfer.files
+        handleFiless(newFiles)
+    }
+
+    function handleFiless(newFiles) {
         handleFiles(images(), newFiles, 'image', setImages)
     }
 
@@ -39,5 +43,7 @@ export default function DropImage() {
                 </div>
             )}
         </output>
+        {/* <div id="snackbar">Only images can be dropped here.</div> */}
+        <Toast message='Only images can be dropped here.'/>
     </>
 }

@@ -1,5 +1,6 @@
 import { Chart } from "chart.js";
 import * as Utils from '../helper/chartjs-utils'
+import { onMount } from "solid-js";
 
 const DATA_COUNT = 7;
 const NUMBER_CFG = { count: DATA_COUNT, min: 0, max: 100 };
@@ -43,8 +44,11 @@ const config = {
     },
 };
 
-new Chart('chart', config);
-
 export default function MultiLineChart() {
-    return <canvas id='chart'></canvas>
+    let canvas;
+    onMount(() => {
+        new Chart(canvas, config);
+    });
+
+    return <canvas ref={canvas} id='chart'></canvas>
 }
