@@ -22,22 +22,18 @@ export default function SidebarLeft() {
             {data.map(o =>
                 <option value={o} />)}
         </datalist>
-        <Line />
+        <Line/>
         <FormGroup onChange={(e) => ''}>
             {data.map(o =>
                 <FormControlLabel
                     class='borderbottom'
+                    label={o}
                     control={
                         <Checkbox
                             value={o}
-                            onChange={handleSelectChange}
-                        />}
-                    label={o}
-                />
-            )}
+                            onChange={handleSelectChange}/>} />)}
         </FormGroup>
-        <Show when={selectedOptions().length}
-        >
+        <Show when={selectedOptions().length}>
             <div>{selectedOptions().join(' ')}</div>
             <Line />
         </Show>

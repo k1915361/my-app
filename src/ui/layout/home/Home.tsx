@@ -11,10 +11,17 @@ import MultiLineChart from "../../chart/multiline-chartjs";
 import Footer from "../footer/footer";
 import './layout.css';
 import ScrollButton from "../../scroll/button/scroll";
+import SettingsButton from "../../input/settingsbutton";
+import { toggle } from "../../../utility/helper";
 
-export default function Home() {
+export default function Home({app}) {
     let main;
     return <div class="main" ref={main}>
+        <SettingsButton app={app} func={(e)=>{
+            let button = e.target;
+            let vis = button.style.visibility;
+            button.style.setProperty('visibility', toggle(vis, 'hidden | visible'));
+        }}/>
         <GettingStartedChart />
         <br/>
         <MultiLineChart/>

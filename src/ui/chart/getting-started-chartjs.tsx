@@ -34,9 +34,5 @@ export default function GettingStartedChart() {
         new Chart(canvas_approach3_id, config);
     });
 
-    return <div>
-        <title>Chart.js example</title>
-        <div style="width: 97%;"><canvas ref={canvas} id="acquisitions"></canvas></div>
-        <script type="module" src="./acquisitions.js"></script>
-    </div>
+    return <canvas ref={canvas} id="acquisitions"></canvas>   
 }

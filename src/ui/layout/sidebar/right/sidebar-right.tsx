@@ -6,7 +6,7 @@ import SelectOptions from "../../../input/SelectOptions";
 import SliderNumberInput from "../../../input/slider-number-input/sliderNumberInput";
 const data = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'];
 
-export default function SidebarRight() {
+export default function SidebarRight({app}) {
     const [selectedOptions, setSelectedOptions] = createSignal([])
 
     const handleSelectChange = (e) => {
@@ -18,7 +18,8 @@ export default function SidebarRight() {
         }
     }
 
-    return <div class="sidebar-right">
+    return <div class="sidebar-right" >
+        <Line />
         <input class='input' list="brow" placeholder="search" />
         <datalist id="brow">
             {data.map(o =>

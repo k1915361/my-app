@@ -8,12 +8,12 @@ import SidebarRight from './ui/layout/sidebar/right/sidebar-right';
 import Container from './ui/container/container';
 
 const App: Component = () => {
-
-    return <Container>
+    let app;
+    return <Container ref={app}>
         <Header />
         <SidebarLeft />
-        <Home />
-        <SidebarRight/>
+        <Home app={() => app} />
+        <SidebarRight app={() => app}/>
     </Container>
 };
 

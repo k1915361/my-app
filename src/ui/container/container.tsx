@@ -1,6 +1,6 @@
-export default function Container({children}) {
+export default function Container(props) {
 
-    return <div class="container " >
-        {children}
+    return <div class=" container " ref={props.ref}>
+        {props.children}
     </div>
 }

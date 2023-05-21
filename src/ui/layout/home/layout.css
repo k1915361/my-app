@@ -1,6 +1,11 @@
+:root {
+    --gridTemplateDesktopDefault: 0.6fr 1.8fr 0.6fr;
+    --gridWithoutSettingsColumn: 1fr 4fr 0fr;
+}
+
 .container {
     display: grid;
-    grid-template-columns: 0.6fr 1.8fr 0.6fr;
+    grid-template-columns: var(--gridTemplateDesktopDefault);
     grid-template-rows: 0.2fr 2.6fr 0.2fr;
     gap: 1px 1px;
     grid-auto-flow: row;

@@ -49,11 +49,15 @@ if (!Array.prototype.last) {
     };
 }
 
-export const toggleSet = (set: Function, options: string) => {
-    options = options.split('|')
-    let a = options[0]
-    let b = options[1]
-    set(val => val === a ? b : a);
+export const toggle = (val: string, options: string) => {
+    let o = options.split('|')
+    o=o.map(o => o.trim())
+    return val === o[0] ? o[1] : o[0]
+}
+
+export const toggleSet = (set: Function, o: string) => {
+    o = o.split('|')
+    set(val => val === o[0] ? o[1] : o[0]);
 }
 
 export const elseNull = (val: any, val2: any) =>
