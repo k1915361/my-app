@@ -49,7 +49,7 @@ if (!Array.prototype.last) {
     };
 }
 
-export const tglSet = (set: Function, options: string) => {
+export const toggleSet = (set: Function, options: string) => {
     options = options.split('|')
     let a = options[0]
     let b = options[1]
@@ -100,4 +100,7 @@ export const intersection = (arr1, arr2) =>
     arr1.filter(x => arr2.includes(x));
 
 export const isTopOfDiv = (ref) =>
-    ref.scrollTop === (ref.scrollHeight - ref.offsetHeight);
+    ref.scrollTop === 0;
+
+export const bottomOrTop = (ref) =>
+    ref.scrollTop === 0 ? ref.scrollHeight : 0;

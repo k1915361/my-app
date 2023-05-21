@@ -59,3 +59,19 @@ strike {
 .bottom {
     bottom: 0;
 }
+
+.hidden {
+    display: none;
+}
+
+.inline {
+    display: inline;
+}
+
+.floatright {
+    float: right;
+}
+
+.evenspacebetween {
+    justify-content: space-evenly;
+}

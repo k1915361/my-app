@@ -1,9 +1,9 @@
 import { Checkbox, FormControlLabel, FormGroup } from "@suid/material";
-import RangeSlider from "../../../input/range-slider/rangeSlider";
 import Line from "../../../helper/line";
 import { Show, createSignal } from "solid-js";
 import '../../../input/input.css'
 import SelectOptions from "../../../input/SelectOptions";
+import SliderNumberInput from "../../../input/slider-number-input/sliderNumberInput";
 const data = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'];
 
 export default function SidebarRight() {
@@ -18,7 +18,7 @@ export default function SidebarRight() {
         }
     }
 
-    return <div >
+    return <div class="sidebar-right">
         <input class='input' list="brow" placeholder="search" />
         <datalist id="brow">
             {data.map(o =>
@@ -27,7 +27,7 @@ export default function SidebarRight() {
         <Line />
         <SelectOptions name='Setting options' options={data}/>
         <Line />
-        <RangeSlider />
+        <SliderNumberInput />
         <Line />
         <input class='input' type='number' value={1} />
         <Line />

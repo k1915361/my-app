@@ -1,6 +1,4 @@
 import { Checkbox, FormControlLabel, FormGroup } from "@suid/material";
-import RangeSlider from "../../../rangeSlider";
-import Item from "../item";
 import Line from "../../../helper/line";
 import { Show, createSignal } from "solid-js";
 import '../../../input/input.css'
@@ -18,7 +16,7 @@ export default function SidebarLeft() {
         }
     }
 
-    return <div >
+    return <div class="sidebar-left">
         <input class='input' list="brow" placeholder="search" />
         <datalist id="brow">
             {data.map(o =>

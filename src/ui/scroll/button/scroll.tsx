@@ -1,17 +1,15 @@
-import { isTopOfDiv } from "../../../utility/helper"
+import { bottomOrTop, isTopOfDiv } from "../../../utility/helper"
 import { Button } from "../../Button"
 
 export default function ScrollButton({ text, ref, yPos, onclick, style }) {
     ref = ref()
-    yPos = yPos || (isTopOfDiv(ref) ? 0 : ref.scrollHeight)
-
+    
     return <Button
         onClick={() =>
             ref.scrollTo({
-                top: (isTopOfDiv(ref) ? 0 : ref.scrollHeight),
+                top: bottomOrTop(ref),
                 behavior: 'smooth'
-            })
-        }
+            })}
         style={{
             position: 'sticky',
             bottom: '0px',

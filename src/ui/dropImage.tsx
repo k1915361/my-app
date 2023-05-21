@@ -44,6 +44,6 @@ export default function DropImage() {
             )}
         </output>
         {/* <div id="snackbar">Only images can be dropped here.</div> */}
-        <Toast message='Only images can be dropped here.'/>
+        <Toast message='Only images can be dropped here.'/>        
     </>
 }

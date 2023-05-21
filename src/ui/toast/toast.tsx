@@ -4,7 +4,10 @@ import './toast.css'
 export default function Toast({ message='...' }) {
 
     return <>
-        <button onclick={handleToast}>Show Toast</button>
         <div id="snackbar">{message}</div>
     </>
+}
+
+function ToastButton() {
+    return <button class='hidden' onclick={handleToast}>Show Toast</button>
 }

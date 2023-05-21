@@ -1,6 +1,6 @@
 import { createSignal, For } from "solid-js";
 import ColoredList from "./colored-list";
-import { tglSet } from "../../../../utility/helper";
+import { toggleSet } from "../../../../utility/helper";
 import { Button } from "../../../Button"; 
 
 export default function ChildrenCreateEffect() {
@@ -12,7 +12,7 @@ export default function ChildrenCreateEffect() {
                 <div>{item}</div>}
             </For>
         </ColoredList>
-        <Button onClick={() => tglSet(setColor, "purple | green")}
+        <Button onClick={() => toggleSet(setColor, "purple | green")}
             >Set Color</Button>
     </>;
 }
