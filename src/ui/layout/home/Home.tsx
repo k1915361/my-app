@@ -19,7 +19,6 @@ import TestPython from "../../python/TestPython";
 export default function Home({app}) {
     let main;
     return <Main ref={main}>
-        <TestPython/>
         <SettingsButton app={app}/>
         <ImageCompress/>
         <GettingStartedChart/><br/>
