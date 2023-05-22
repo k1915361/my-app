@@ -14,10 +14,12 @@ import ScrollButton from "../../scroll/button/scroll";
 import SettingsButton from "../../input/settingsbutton";
 import ImageCompress from "../../image/image-compress";
 import Main from "../main/main";
+import TestPython from "../../python/TestPython";
 
 export default function Home({app}) {
     let main;
     return <Main ref={main}>
+        <TestPython/>
         <SettingsButton app={app}/>
         <ImageCompress/>
         <GettingStartedChart/><br/>
@@ -27,8 +29,8 @@ export default function Home({app}) {
         <DropImage/>
         <ViewWidth/>
         <OnPhotosMount/><br/>
-        <Modal/>
-        <ChildrenCreateEffect/>
+        <Modal/><br/><br/>
+        <ChildrenCreateEffect/><br/>
         <TransitionsTabs/>
         <ScrollButton text='Scroll to' ref={()=>main}/>
         <Footer/>

@@ -2,6 +2,7 @@
   "name": "vite-template-solid",
   "version": "0.0.0",
   "description": "",
+  "type": "module",
   "scripts": {
     "start": "vite",
     "dev": "vite",
@@ -30,6 +31,7 @@
     "jsdom": "^22.0.0",
     "luxon": "^3.3.0",
     "material-icons": "^1.13.6",
+    "pythonia": "^1.0.1",
     "shortid": "^2.2.16",
     "solid-js": "^1.6.10",
     "solid-start": "^0.2.26"

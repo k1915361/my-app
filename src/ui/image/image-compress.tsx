@@ -5,31 +5,31 @@ import { toUrl } from "../../utility/helper";
 export default function ImageCompress() {
     const [imgs, setImgs] = createSignal([]);
     const [image, setImage] = createSignal('./library/images/nature (5).jpg');
+    const [x, setX] = createSignal(100);
+    const [y, setY] = createSignal(100);
     let img
     let output
     let fileinput
     let max_width
     let max_height
-    let preview
-    let form
-
-    const output_height = () => output.height
 
     onMount(() => {
         fileinput = document.getElementById('fileinput');
         max_width = fileinput?.getAttribute('data-maxwidth');
         max_height = fileinput?.getAttribute('data-maxheight');
-        preview = document.getElementById('preview');
-        form = document.getElementById('form');
+        output.width = output.width
+        output.heigth = output.height
+        setX(output.width);
+        setY(output.height);
     })
 
     function outputFile(files) {
         let file = files[0];
         img.src = toUrl(file);
         output.src = toUrl(file);
-        // output.height = output.height;
-        // output.width = output.width;
-        setImage(toUrl(file))
+        // setImage(toUrl(file))
+        setX(output.width)
+        setY(output.height)
     }
 
     function handleFileChange() {
@@ -59,9 +59,10 @@ export default function ImageCompress() {
         canvas.height = height;
         let ctx = canvas.getContext("2d");
         ctx.drawImage(img, 0, 0, width, height);
-        preview.appendChild(canvas);
-        return canvas.toDataURL("image/jpeg", quality);
+        return canvas.toDataURL("image/webp", quality);
     }
+
+    
 
     function onQualityInput(e) {
         let value = e.target.value;
@@ -72,6 +73,8 @@ export default function ImageCompress() {
         let quality = value / 100;
         let newimg = resizeMe(img, quality)
         output.src = newimg;
+        setX(output.width)
+        setY(output.height)
     }
 
     return <div>
@@ -84,15 +87,12 @@ export default function ImageCompress() {
             onchange={handleFileChange}
         />
         <img src="./library/images/nature (5).jpg" ref={img} style='visibility:hidden; position:absolute; left:0;'/>
-        {/* <img src="./library/images/nature (5).jpg" ref={output}/> */}
-        <img src={image()} ref={output}/>
-        <p>{output.height * output.width} = {output_height()} x {output.width}</p>
+        <img src="./library/images/nature (5).jpg" ref={output}/>
+        <p>{x()} x {y()}</p>
         <SliderNumberInput min={0} max={100} value={100} onInput={onQualityInput}/>
-        <canvas id="preview"></canvas>
-        <div id="form" ></div>
         <div>
-            {imgs().map((i, idx) => {
-                return <img src={i} alt="image" />
+            {imgs().map(img => {
+                return <img src={img} alt="image" />
             })}
         </div>
     </div>

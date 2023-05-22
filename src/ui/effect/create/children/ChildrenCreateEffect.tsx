@@ -10,7 +10,7 @@ export default function ChildrenCreateEffect() {
         <ColoredList color={color()}>
             <For each={["1. List items inside a parent component"
                 , "2. Pass each item to a child component"
-                , "3. Let the parent apply styles and colour to each child"]}
+                , "3. Let the parent apply styles to each child"]}
             >{item =>
                 <div>{item}</div>}
             </For>
