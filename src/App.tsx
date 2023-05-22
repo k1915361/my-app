@@ -10,9 +10,9 @@ import Container from './ui/container/container';
 const App: Component = () => {
     let app;
     return <Container ref={app}>
-        <Header />
-        <SidebarLeft />
-        <Home app={() => app} />
+        <Header/>
+        <SidebarLeft/>
+        <Home app={() => app}/>
         <SidebarRight app={() => app}/>
     </Container>
 };

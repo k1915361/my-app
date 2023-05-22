@@ -1,6 +1,6 @@
 import OnPhotosMount from "../../photos/onMount/onPhotosMount";
 import Modal from "../../modal/directivesModal";
-import ChildrenCreateEffect from "../../effect/children/create/ChildrenCreateEffect";
+import ChildrenCreateEffect from "../../effect/create/children/ChildrenCreateEffect";
 import { TransitionsTabs } from "../../transitions/tabs/transitionTabs";
 import ViewWidth from "../../viewwidth";
 import GettingStartedChart from "../../chart/getting-started-chartjs";
@@ -12,30 +12,25 @@ import Footer from "../footer/footer";
 import './layout.css';
 import ScrollButton from "../../scroll/button/scroll";
 import SettingsButton from "../../input/settingsbutton";
-import { toggle } from "../../../utility/helper";
+import ImageCompress from "../../image/image-compress";
+import Main from "../main/main";
 
 export default function Home({app}) {
     let main;
-    return <div class="main" ref={main}>
-        <SettingsButton app={app} func={(e)=>{
-            let button = e.target;
-            let vis = button.style.visibility;
-            button.style.setProperty('visibility', toggle(vis, 'hidden | visible'));
-        }}/>
-        <GettingStartedChart />
-        <br/>
-        <MultiLineChart/>
-        <br/>
+    return <Main ref={main}>
+        <SettingsButton app={app}/>
+        <ImageCompress/>
+        <GettingStartedChart/><br/>
+        <MultiLineChart/><br/>
         <App_UseCloudinary/>
         <Home_Cloudinary/>
         <DropImage/>
         <ViewWidth/>
-        <OnPhotosMount/>
-        <br/>
+        <OnPhotosMount/><br/>
         <Modal/>
         <ChildrenCreateEffect/>
         <TransitionsTabs/>
         <ScrollButton text='Scroll to' ref={()=>main}/>
         <Footer/>
-    </div>
+    </Main>
 }

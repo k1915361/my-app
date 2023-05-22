@@ -8,16 +8,16 @@ export default function DropImage() {
 
     function handleInputChange(e) {
         const newFiles = e.target.files
-        handleFiless(newFiles)
+        passFiles(newFiles)
     }
 
     function handleFileDrop(e) {
         e.preventDefault()
         const newFiles = e.dataTransfer.files
-        handleFiless(newFiles)
+        passFiles(newFiles)
     }
 
-    function handleFiless(newFiles) {
+    function passFiles(newFiles) {
         handleFiles(images(), newFiles, 'image', setImages)
     }
 
@@ -43,7 +43,6 @@ export default function DropImage() {
                 </div>
             )}
         </output>
-        {/* <div id="snackbar">Only images can be dropped here.</div> */}
-        <Toast message='Only images can be dropped here.'/>        
+        <Toast message='Only images can be dropped here.'/>
     </>
 }

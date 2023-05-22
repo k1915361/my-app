@@ -17,6 +17,5 @@ export default function ScrollButton({ text, ref, yPos, onclick, style }) {
             width: 'fit-content',
             ...style
         }}
-
     >{text}</Button>
 }

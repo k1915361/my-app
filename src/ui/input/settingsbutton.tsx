@@ -3,7 +3,7 @@ import '../../ui/helper/helper.css';
 import { toggle } from "../../utility/helper";
 
 export default function SettingsButton({ app }) {
-
+    
     return <Button
         class=' floatright'
         onClick={e => {

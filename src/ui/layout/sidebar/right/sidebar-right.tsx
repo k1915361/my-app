@@ -19,7 +19,6 @@ export default function SidebarRight({app}) {
     }
 
     return <div class="sidebar-right" >
-        <Line />
         <input class='input' list="brow" placeholder="search" />
         <datalist id="brow">
             {data.map(o =>

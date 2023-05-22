@@ -51,12 +51,13 @@ if (!Array.prototype.last) {
 
 export const toggle = (val: string, options: string) => {
     let o = options.split('|')
-    o=o.map(o => o.trim())
+    o = o.map(o => o.trim())
     return val === o[0] ? o[1] : o[0]
 }
 
-export const toggleSet = (set: Function, o: string) => {
-    o = o.split('|')
+export const toggleSet = (set: Function, options: string) => {
+    let o = options.split('|')
+    o.forEach(o => o.trim())
     set(val => val === o[0] ? o[1] : o[0]);
 }
 

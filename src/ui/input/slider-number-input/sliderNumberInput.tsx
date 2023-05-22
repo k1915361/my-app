@@ -31,9 +31,12 @@ export default function SliderNumberInput({ class: classs, min, value, clss, onI
             min={min}
             max={max}
             value={value}
-            onInput={e => {
+            onInput={e => { 
+                onInput(e)
                 slider.value = e.target.value
                 slider.style.setProperty('--val', e.target.value)
+            }}
+            onChange={e => { onInput(e)
             }}
         />
     </form>
