@@ -77,31 +77,31 @@ export function isFileType(file, type) {
 
 export const values = (o) => Object.values(o)
 
-export function handleFiles(images, newFiles, type = 'image',setImages =(e)=>'') {
-    let result = []; 
+export function handleFiles(images, newFiles, type = 'image', setImages = (e) => '') {
+    let result = [];
     for (let i = 0; i < newFiles.length; i++) {
-        let file = newFiles[i]; console.log('for in', file) 
-        if (!isFileType(file,type)) {
+        let file = newFiles[i]; console.log('for in', file)
+        if (!isFileType(file, type)) {
             handleToast()
             continue;
         }
-    
-        if (images.every(i => i.name !== file.name)){
-            result.push(file) 
+
+        if (images.every(i => i.name !== file.name)) {
+            result.push(file)
         }
-    } 
+    }
     if (result.length === 0) return images
     setImages([...images, ...result])
     return result
-} 
+}
 
 export const deleteOne = (ls, index) =>
     ls.filter((_, i) => i !== index)
 
-export const toUrl = (img) => 
+export const toUrl = (img) =>
     URL.createObjectURL(img)
 
-export const intersection = (arr1, arr2) => 
+export const intersection = (arr1, arr2) =>
     arr1.filter(x => arr2.includes(x));
 
 export const isTopOfDiv = (ref) =>
@@ -109,3 +109,21 @@ export const isTopOfDiv = (ref) =>
 
 export const bottomOrTop = (ref) =>
     ref.scrollTop === 0 ? ref.scrollHeight : 0;
+
+export const toDataURL = (url: any) => fetch(url)
+    .then(response => response.blob())
+    .then(blob => new Promise((resolve, reject) => {
+        const reader = new FileReader()
+        reader.onloadend = () => resolve(reader.result)
+        reader.onerror = reject
+        reader.readAsDataURL(blob)
+    }))
+
+export function dataURLtoFile(dataurl, filename) {
+    var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+        bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+    while (n--) {
+        u8arr[n] = bstr.charCodeAt(n);
+    }
+    return new File([u8arr], filename, { type: mime });
+}

@@ -3,22 +3,17 @@ import SliderNumberInput from "../input/slider-number-input/sliderNumberInput";
 import { toUrl } from "../../utility/helper";
 
 export default function ImageCompress() {
-    const [imgs, setImgs] = createSignal([]);
-    const [image, setImage] = createSignal('./library/images/nature (5).jpg');
-    const [x, setX] = createSignal(100);
-    const [y, setY] = createSignal(100);
+    let max_width = 300
+    let max_height = 300
     let img
     let output
     let fileinput
-    let max_width
-    let max_height
+    const [imgs, setImgs] = createSignal([]);
+    const [image, setImage] = createSignal('./library/images/nature (5).jpg');
+    const [x, setX] = createSignal(max_width);
+    const [y, setY] = createSignal(max_height);
 
     onMount(() => {
-        fileinput = document.getElementById('fileinput');
-        max_width = fileinput?.getAttribute('data-maxwidth');
-        max_height = fileinput?.getAttribute('data-maxheight');
-        output.width = output.width
-        output.heigth = output.height
         setX(output.width);
         setY(output.height);
     })
@@ -80,10 +75,11 @@ export default function ImageCompress() {
     return <div>
         <input id='fileinput'
             type="file"
+            ref={fileinput}
             multiple="multiple"
             accept="image/*"
-            data-maxwidth="300"
-            data-maxheight="300"
+            data-maxwidth={max_width}
+            data-maxheight={max_height}
             onchange={handleFileChange}
         />
         <img src="./library/images/nature (5).jpg" ref={img} style='visibility:hidden; position:absolute; left:0;'/>

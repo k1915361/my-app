@@ -17,9 +17,7 @@ export default function useCloudinary() {
 
   function handleImageChange(e) {
     const image = e.target.files[0];
-    // create blob url of selected image for preview
     const imagePreview = URL.createObjectURL(image);
-    // create axios cancellation token to abort request in future
     const abortToken = axios.CancelToken.source();
 
     setStore("image", image);
@@ -31,9 +29,7 @@ export default function useCloudinary() {
     });
   }
   function handleImageRemove() {
-    // cleanup blob  metadata
     URL.revokeObjectURL(store.imagePreview);
-    window.location.reload();
   }
   async function handleImageUpload() {
     try {
@@ -55,7 +51,6 @@ export default function useCloudinary() {
         text: "Image uploaded to cloudinary successfully",
       });
 
-      // revoke preview blob url
       URL.revokeObjectURL(store.imagePreview);
       setStore("imagePreview", response.data.url);
     } catch (error) {

@@ -5,8 +5,8 @@ import { TransitionsTabs } from "../../transitions/tabs/transitionTabs";
 import ViewWidth from "../../viewwidth";
 import GettingStartedChart from "../../chart/getting-started-chartjs";
 import App_UseCloudinary from "../../../utility/App-useCloudinary";
-import Home_Cloudinary from "../../cloudinary";
-import DropImage from "../../dropImage";
+import Home_Cloudinary from "../../image/cloudinary";
+import DropImage from "../../dropimage/dropImage";
 import MultiLineChart from "../../chart/multiline-chartjs";
 import Footer from "../footer/footer";
 import './layout.css';
@@ -14,12 +14,13 @@ import ScrollButton from "../../scroll/button/scroll";
 import SettingsButton from "../../input/settingsbutton";
 import ImageCompress from "../../image/image-compress";
 import Main from "../main/main";
-import TestPython from "../../python/TestPython";
+import CompressorJS from "../../image/compress/compressorjs";
 
 export default function Home({app}) {
     let main;
     return <Main ref={main}>
-        <SettingsButton app={app}/>
+        <SettingsButton app={app}/>  
+        <CompressorJS />
         <ImageCompress/>
         <GettingStartedChart/><br/>
         <MultiLineChart/><br/>

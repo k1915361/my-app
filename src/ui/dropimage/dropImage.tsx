@@ -1,7 +1,7 @@
 import { createSignal } from 'solid-js';
 import './dropImage.css';
-import { deleteOne, handleFiles, toUrl } from '../utility/helper';
-import Toast from './toast/toast';
+import { deleteOne, handleFiles, toUrl } from '../../utility/helper';
+import Toast from '../toast/toast';
 
 export default function DropImage() {
     const [images, setImages] = createSignal([])

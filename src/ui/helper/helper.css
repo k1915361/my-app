@@ -75,3 +75,9 @@ strike {
 .evenspacebetween {
     justify-content: space-evenly;
 }
+
+.hidden {
+    display: none;
+    position: absolute;
+    top: 0;
+}
