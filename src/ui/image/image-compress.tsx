@@ -1,53 +1,36 @@
-import { createSignal, onMount } from "solid-js";
+import { createSignal } from "solid-js";
 import SliderNumberInput from "../input/slider-number-input/sliderNumberInput";
-import { toUrl } from "../../utility/helper";
+import { dataURLSize, getImageSizeInBytes, getRatio, isFileAPISupported, toDataURL, toUrl } from "../../utility/helper";
 
 export default function ImageCompress() {
-    let max_width = 300
-    let max_height = 300
-    let img
-    let output
-    let fileinput
-    const [imgs, setImgs] = createSignal([]);
-    const [image, setImage] = createSignal('./library/images/nature (5).jpg');
-    const [x, setX] = createSignal(max_width);
-    const [y, setY] = createSignal(max_height);
+    const [x, setX] = createSignal();
+    const [y] = createSignal();
+    const [quality, setQuality] = createSignal(1);
+    const [size, setSize] = createSignal(0);
+    let img: HTMLImageElement | ((el: HTMLImageElement) => void) | undefined
+    let output: HTMLImageElement
+    let fileinput: HTMLInputElement
 
-    onMount(() => {
-        setX(output.width);
-        setY(output.height);
-    })
-
-    function outputFile(files) {
+    function outputFile(files = fileinput.files) {
+        if(!isFileAPISupported()) return;
         let file = files[0];
         img.src = toUrl(file);
         output.src = toUrl(file);
-        // setImage(toUrl(file))
-        setX(output.width)
-        setY(output.height)
     }
 
-    function handleFileChange() {
-        if (!(window.File && window.FileReader && window.FileList && window.Blob)) {
-            alert('The File APIs are not fully supported in this browser.');
-            return false;
-        }
-        outputFile(fileinput.files);
-    }
-
-    function resizeMe(img, quality = 1.0) {
+    function resizeMe(img: HTMLImageElement, quality = 1.0) {
         let canvas = document.createElement('canvas');
         let width = img.width;
         let height = img.height;
         if (width > height) {
-            if (width > max_width) {
-                height = Math.round(height *= max_width / width);
-                width = max_width;
+            if (width > x()) {
+                height = Math.round(height *= x() / width);
+                width = x();
             }
         } else {
-            if (height > max_height) {
-                width = Math.round(width *= max_height / height);
-                height = max_height;
+            if (height > y()) {
+                width = Math.round(width *= y() / height);
+                height = y();
             }
         }
         canvas.width = width;
@@ -57,39 +40,46 @@ export default function ImageCompress() {
         return canvas.toDataURL("image/webp", quality);
     }
 
-    
-
     function onQualityInput(e) {
-        let value = e.target.value;
-        if (value == 100) {
-            output.src = img.src;
-            return 0;
-        }
-        let quality = value / 100;
-        let newimg = resizeMe(img, quality)
+        let val = e.target.value;
+        setQuality(val / 100)
+        let newimg = resizeMe(img, quality())
         output.src = newimg;
-        setX(output.width)
-        setY(output.height)
+    }
+
+    function handleXChange (e) {
+        setX(e.target.value)
+        let newimg = resizeMe(img, quality())
+        output.src = newimg;
     }
 
     return <div>
-        <input id='fileinput'
+        <input 
+            id='fileinput'
             type="file"
             ref={fileinput}
             multiple="multiple"
             accept="image/*"
-            data-maxwidth={max_width}
-            data-maxheight={max_height}
-            onchange={handleFileChange}
+            data-maxwidth={1900}
+            data-maxheight={1900}
+            onchange={outputFile}
         />
-        <img src="./library/images/nature (5).jpg" ref={img} style='visibility:hidden; position:absolute; left:0;'/>
-        <img src="./library/images/nature (5).jpg" ref={output}/>
-        <p>{x()} x {y()}</p>
-        <SliderNumberInput min={0} max={100} value={100} onInput={onQualityInput}/>
-        <div>
-            {imgs().map(img => {
-                return <img src={img} alt="image" />
-            })}
+        <img 
+            src="./library/images/nature (5).jpg" 
+            ref={img} 
+            style='visibility:hidden; position:absolute; left:0;' 
+        />
+        <div class='resizeable'>
+        <img 
+            src="./library/images/nature (5).jpg" 
+            ref={output} 
+            onLoad={(e)=>setSize(dataURLSize(output.src))}
+        />
         </div>
+        <p>w{x()} size:{size()}</p>
+        <span>compress quality</span>
+        <SliderNumberInput min={0} max={100} value={100} onInput={onQualityInput}/>
+        <span>resize</span>
+        <SliderNumberInput min={1} max={3000} value={580} onInput={handleXChange}/>
     </div>
 }

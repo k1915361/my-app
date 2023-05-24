@@ -127,3 +127,34 @@ export function dataURLtoFile(dataurl, filename) {
     }
     return new File([u8arr], filename, { type: mime });
 }
+
+export function getImageSizeInBytes(imgURL) {
+    var request = new XMLHttpRequest();
+    request.open("HEAD", imgURL, false);
+    request.send(null);
+    var headerText = request.getAllResponseHeaders();
+    var re = /Content\-Length\s*:\s*(\d+)/i;
+    re.exec(headerText);
+    return parseInt(RegExp.$1);
+}
+   
+export function getRatio(a = 0, b = 0): number {
+    if (b == 0)
+        return a
+    return getRatio(b, a % b)
+}
+
+export function isFileAPISupported() {
+    if (!(window.File && window.FileReader && window.FileList && window.Blob)) {
+        alert('The File APIs are not fully supported in this browser.');
+        return false;
+    }
+    return true;
+}
+
+export function dataURLSize(src: string){
+    var commaIndex = src.indexOf(","); // find the comma position
+    let base64str = src.substring(commaIndex + 1);
+    var decoded = atob(base64str);
+    return decoded.length;
+}

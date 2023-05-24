@@ -14,13 +14,11 @@ import ScrollButton from "../../scroll/button/scroll";
 import SettingsButton from "../../input/settingsbutton";
 import ImageCompress from "../../image/image-compress";
 import Main from "../main/main";
-import CompressorJS from "../../image/compress/compressorjs";
 
 export default function Home({app}) {
     let main;
     return <Main ref={main}>
         <SettingsButton app={app}/>  
-        <CompressorJS />
         <ImageCompress/>
         <GettingStartedChart/><br/>
         <MultiLineChart/><br/>
