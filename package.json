@@ -9,8 +9,7 @@
     "serve": "vite preview",
     "test": "vitest --coverage",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "postinstall": "patch -Np1 -i solid-start-use-base-path-in-client-router.patch"
+    "deploy": "gh-pages -d build"
   },
   "license": "MIT",
   "devDependencies": {
