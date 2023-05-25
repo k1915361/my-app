@@ -1,6 +1,6 @@
 import { createSignal } from "solid-js";
 import SliderNumberInput from "../input/slider-number-input/sliderNumberInput";
-import { dataURLSize, getImageSizeInBytes, getRatio, isFileAPISupported, toDataURL, toUrl } from "../../utility/helper";
+import { dataURLSize, humanFileSize, isFileAPISupported, toUrl } from "../../utility/helper";
 
 export default function ImageCompress() {
     const [x, setX] = createSignal();
@@ -76,7 +76,7 @@ export default function ImageCompress() {
             onLoad={(e)=>setSize(dataURLSize(output.src))}
         />
         </div>
-        <p>w{x()} size:{size()}</p>
+        <p>w{x()} size:{humanFileSize(size() || 1)}</p>
         <span>compress quality</span>
         <SliderNumberInput min={0} max={100} value={100} onInput={onQualityInput}/>
         <span>resize</span>

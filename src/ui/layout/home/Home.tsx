@@ -14,6 +14,7 @@ import ScrollButton from "../../scroll/button/scroll";
 import SettingsButton from "../../input/settingsbutton";
 import ImageCompress from "../../image/image-compress";
 import Main from "../main/main";
+import { HelloWorldPyScript } from "../../python/pyscript/helloworld";
 
 export default function Home({app}) {
     let main;

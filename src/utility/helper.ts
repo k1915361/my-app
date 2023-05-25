@@ -158,3 +158,19 @@ export function dataURLSize(src: string){
     var decoded = atob(base64str);
     return decoded.length;
 }
+
+export function humanFileSize(bytes, si = false, precision = 1) {
+    if (typeof bytes !== "number" || isNaN(bytes)) {
+      return "Invalid input";
+    }
+    const units = si
+      ? ["B", "kB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"]
+      : ["B", "KiB", "MiB", "GiB", "TiB", "PiB", "EiB", "ZiB", "YiB"];
+    const base = si ? 1000 : 1024;
+    const exponent = Math.min(
+      Math.floor(Math.log(Math.abs(bytes)) / Math.log(base)),
+      units.length - 1
+    );
+    const quotient = bytes / Math.pow(base, exponent);
+    return quotient.toFixed(precision) + " " + units[exponent];
+}
