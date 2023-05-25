@@ -1,9 +1,10 @@
+import solid from "solid-start/vite";
+import staticAdapter from "solid-start";
 import { defineConfig } from 'vitest/config';
-import solidPlugin from 'vite-plugin-solid';
 
 export default defineConfig({
   base: "/solidjslearn/",
-  plugins: [solidPlugin()],
+  plugins: [solid({ adapter: staticAdapter() })],
   server: {
     port: 3000,
   },
