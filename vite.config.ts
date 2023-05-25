@@ -2,7 +2,7 @@ import { defineConfig } from 'vitest/config';
 import solidPlugin from 'vite-plugin-solid';
 
 export default defineConfig({
-  base: "/my-project/",
+  base: "/solidjslearn/",
   plugins: [solidPlugin()],
   server: {
     port: 3000,
