@@ -26,11 +26,14 @@
 }
 
 .main,
-.sidebar-right,
 .sidebar-left,
 .header
 {
     padding-left: 2px;
+}
+
+.sidebar-right {
+    padding-left: 0;
 }
 
 .main {

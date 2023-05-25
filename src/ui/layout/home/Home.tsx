@@ -14,12 +14,13 @@ import ScrollButton from "../../scroll/button/scroll";
 import SettingsButton from "../../input/settingsbutton";
 import ImageCompress from "../../image/image-compress";
 import Main from "../main/main";
-import { HelloWorldPyScript } from "../../python/pyscript/helloworld";
+import FaceAPIExpressionExample from "../../image/faceapi/faceExpressionExample";
 
 export default function Home({app}) {
     let main;
     return <Main ref={main}>
         <SettingsButton app={app}/>  
+        <FaceAPIExpressionExample />
         <ImageCompress/>
         <GettingStartedChart/><br/>
         <MultiLineChart/><br/>

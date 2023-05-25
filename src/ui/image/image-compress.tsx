@@ -45,12 +45,18 @@ export default function ImageCompress() {
         setQuality(val / 100)
         let newimg = resizeMe(img, quality())
         output.src = newimg;
+        updateSize()
     }
 
     function handleXChange (e) {
         setX(e.target.value)
         let newimg = resizeMe(img, quality())
         output.src = newimg;
+        updateSize()
+    }
+
+    function updateSize() {
+        setSize(dataURLSize(output.src))
     }
 
     return <div>
@@ -65,21 +71,20 @@ export default function ImageCompress() {
             onchange={outputFile}
         />
         <img 
-            src="./library/images/nature (5).jpg" 
+            src="./library/image/nature (5).jpg" 
             ref={img} 
-            style='visibility:hidden; position:absolute; left:0;' 
+            style='visibility:hidden; width:0; height:0;' 
         />
         <div class='resizeable'>
         <img 
-            src="./library/images/nature (5).jpg" 
+            src="./library/image/nature (5).jpg" 
             ref={output} 
-            onLoad={(e)=>setSize(dataURLSize(output.src))}
         />
         </div>
         <p>w{x()} size:{humanFileSize(size() || 1)}</p>
         <span>compress quality</span>
-        <SliderNumberInput min={0} max={100} value={100} onInput={onQualityInput}/>
+        <SliderNumberInput min={0} max={100} value={70} onInput={onQualityInput}/>
         <span>resize</span>
-        <SliderNumberInput min={1} max={3000} value={580} onInput={handleXChange}/>
+        <SliderNumberInput min={1} max={1900} value={580} onInput={handleXChange}/>
     </div>
 }
