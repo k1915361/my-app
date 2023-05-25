@@ -1,4 +1,4 @@
-import './rangeslider.css'
+import './rangeSlider.css'
 
 export default function RangeSlider({class: classs, min, value, clss, onInput, max}) {
     return <form>
