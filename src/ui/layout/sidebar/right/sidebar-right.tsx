@@ -2,7 +2,7 @@ import { Checkbox, FormControlLabel, FormGroup } from "@suid/material";
 import Line from "../../../helper/line";
 import { Show, createSignal } from "solid-js";
 import '../../../input/input.css'
-import SelectOptions from "../../../input/SelectOptions";
+import SelectOptions from "../../../input/selectOptions";
 import SliderNumberInput from "../../../input/slider-number-input/sliderNumberInput";
 const data = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'];
 
