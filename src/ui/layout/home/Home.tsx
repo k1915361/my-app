@@ -14,13 +14,13 @@ import ScrollButton from "../../scroll/button/scroll";
 import SettingsButton from "../../input/settingsbutton";
 import ImageCompress from "../../image/image-compress";
 import Main from "../main/main";
-import FaceAPIExpressionExample from "../../image/faceapi/faceExpressionExample";
+import FaceAPIExpressionDemo from "../../image/faceapi/faceExpressionDemo";
 
 export default function Home({app}) {
     let main;
     return <Main ref={main}>
         <SettingsButton app={app}/>  
-        <FaceAPIExpressionExample />
+        <FaceAPIExpressionDemo />
         <ImageCompress/>
         <GettingStartedChart/><br/>
         <MultiLineChart/><br/>

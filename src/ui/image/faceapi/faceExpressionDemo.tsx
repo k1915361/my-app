@@ -1,18 +1,26 @@
 import * as faceapi from 'face-api.js';
 import { onMount } from 'solid-js';
-import { getEl, getFaceDetectorOptions } from './faceAPIHelper';
+import { LIBRARY_IMAGE_FACE, changeFaceDetector, getElId, getFaceDetectorOptions, isFaceDetectionModelLoaded } from './faceAPIHelper';
+import './faceApi.css'
+import SelectOptions from '../../input/selectOptions';
 
-export default function FaceAPIExpressionExample() {
-    
-    async function updateResults() {
-        const inputImgEl = getEl('#inputImg')
+export default function FaceAPIExpressionDemo() {
+    let inputImg: HTMLImageElement
+    let outputCanvas: HTMLCanvasElement
+
+    async function updateResults() {        
+        if(!isFaceDetectionModelLoaded()) 
+            console.log('Model not loaded')
+        await faceapi.loadFaceLandmarkModel('library/model/')
+        await faceapi.loadFaceExpressionModel('library/model/')
+        const inputImgEl = getElId('inputImg')
         const options = getFaceDetectorOptions()
 
         const results = await faceapi.detectAllFaces(inputImgEl, options)
             .withFaceLandmarks()
             .withFaceExpressions()
 
-        const canvas = getEl('#overlay')
+        const canvas = getElId('overlay')
         faceapi.matchDimensions(canvas, inputImgEl)
 
         const resizedResults = faceapi.resizeResults(results, inputImgEl)
@@ -22,9 +30,8 @@ export default function FaceAPIExpressionExample() {
     }
     
     async function run() {
-        await faceapi.loadFaceLandmarkModel('library/model/')
-        await faceapi.loadFaceExpressionModel('library/model/')
-        updateResults()
+        await changeFaceDetector()
+        await updateResults()
     }
 
     onMount(() =>  {        
@@ -33,14 +40,29 @@ export default function FaceAPIExpressionExample() {
 
     return (
         <div class="center-content page-container">
-
             <div class="progress" id="loader">
                 <div class="indeterminate"></div>
             </div>
-            <div style="position: relative" class="margin">
-                <img id="inputImg" src="library/image/face/happy.jfif" style="max-width: 800px;" />
-                <canvas id="overlay" />
+            <div class="positionRelative margin" >
+                <img 
+                    ref={inputImg} 
+                    id="inputImg" 
+                    src={LIBRARY_IMAGE_FACE+"happy.jfif"} 
+                    class="maxWidth800px" 
+                    loading='lazy'
+                />
+                <canvas 
+                    ref={outputCanvas} 
+                    id='overlay' 
+                />
             </div>
+            <SelectOptions 
+                options={['1.jpg','2.jfif','3.jfif','5.jfif','6.jpg','happy.jfif']} 
+                onChange={e => {
+                    inputImg.src = LIBRARY_IMAGE_FACE+e.target.value
+                    updateResults()
+                }}
+            />
 
             <div class="row side-by-side">
                 <div id="selectList"></div>
