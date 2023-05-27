@@ -3,7 +3,6 @@ import Modal from "../../modal/directivesModal";
 import ChildrenCreateEffect from "../../effect/create/children/ChildrenCreateEffect";
 import { TransitionsTabs } from "../../transitions/tabs/transitionTabs";
 import ViewWidth from "../../viewwidth";
-import GettingStartedChart from "../../chart/getting-started-chartjs";
 import App_UseCloudinary from "../../../utility/App-useCloudinary";
 import Home_Cloudinary from "../../image/cloudinary";
 import DropImage from "../../dropimage/dropImage";
@@ -15,15 +14,20 @@ import SettingsButton from "../../input/settingsbutton";
 import ImageCompress from "../../image/image-compress";
 import Main from "../main/main";
 import FaceAPIExpressionDemo from "../../image/faceapi/faceExpressionDemo";
+import FaceExpressionRecognitionWebcam from "../../image/faceapi/faceWebcamExpressionRecognition";
+import ChartJSStreaming from "../../chart/streaming/chartjs-streaming";
 
 export default function Home({app}) {
     let main;
     return <Main ref={main}>
-        <SettingsButton app={app}/>  
-        <FaceAPIExpressionDemo />
+        <SettingsButton app={app}/><br/><br/><br/>
+        <div class='flex-container'>
+            <ChartJSStreaming/>
+            <MultiLineChart/>
+        </div>
+        <FaceExpressionRecognitionWebcam/>
+        <FaceAPIExpressionDemo /> 
         <ImageCompress/>
-        <GettingStartedChart/><br/>
-        <MultiLineChart/><br/>
         <App_UseCloudinary/>
         <Home_Cloudinary/>
         <DropImage/>

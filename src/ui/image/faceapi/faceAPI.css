@@ -6,7 +6,7 @@
     margin-right: 2px;
 }
 
-#overlay {
+.overlay {
     position: absolute;
     top: 0;
     left: 0;

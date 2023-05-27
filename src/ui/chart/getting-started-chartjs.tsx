@@ -24,7 +24,7 @@ const config = {
     }
 }
 
-export default function GettingStartedChart() {
+export default function GettingStartedChartJS() {
     let canvas;
 
     onMount(() => {

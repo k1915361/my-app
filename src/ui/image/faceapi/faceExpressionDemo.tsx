@@ -6,24 +6,22 @@ import SelectOptions from '../../input/selectOptions';
 
 export default function FaceAPIExpressionDemo() {
     let inputImg: HTMLImageElement
-    let outputCanvas: HTMLCanvasElement
+    let canvas: HTMLCanvasElement
 
     async function updateResults() {        
         if(!isFaceDetectionModelLoaded()) 
             console.log('Model not loaded')
         await faceapi.loadFaceLandmarkModel('library/model/')
         await faceapi.loadFaceExpressionModel('library/model/')
-        const inputImgEl = getElId('inputImg')
         const options = getFaceDetectorOptions()
 
-        const results = await faceapi.detectAllFaces(inputImgEl, options)
+        const results = await faceapi.detectAllFaces(inputImg, options)
             .withFaceLandmarks()
             .withFaceExpressions()
 
-        const canvas = getElId('overlay')
-        faceapi.matchDimensions(canvas, inputImgEl)
+        faceapi.matchDimensions(canvas, inputImg)
 
-        const resizedResults = faceapi.resizeResults(results, inputImgEl)
+        const resizedResults = faceapi.resizeResults(results, inputImg)
         const minConfidence = 0.05
         faceapi.draw.drawDetections(canvas, resizedResults)
         faceapi.draw.drawFaceExpressions(canvas, resizedResults, minConfidence)
@@ -35,6 +33,8 @@ export default function FaceAPIExpressionDemo() {
     }
 
     onMount(() =>  {        
+        // inputImg = getElId('inputImg')
+        canvas = getElId('overlay')
         run()
     })
 
@@ -52,8 +52,9 @@ export default function FaceAPIExpressionDemo() {
                     loading='lazy'
                 />
                 <canvas 
-                    ref={outputCanvas} 
+                    ref={canvas} 
                     id='overlay' 
+                    class='overlay' 
                 />
             </div>
             <SelectOptions 
