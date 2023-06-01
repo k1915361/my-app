@@ -1,6 +1,7 @@
 * {
     font-family: 'Segoe UI';
     margin: 0;
+    max-width: 100%;
 }
 
 * p {
@@ -17,7 +18,7 @@ body {
 
 img, 
 video {
-    width: 100%;
+    max-width: 100%;
 }
 
 body {

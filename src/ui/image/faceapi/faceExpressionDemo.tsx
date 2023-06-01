@@ -64,7 +64,8 @@ export default function FaceAPIExpressionDemo() {
                     updateResults()
                 }}
             />
-
+            
+            {false && <>
             <div class="row side-by-side">
                 <div id="selectList"></div>
                 <div class="row">
@@ -144,6 +145,8 @@ export default function FaceAPIExpressionDemo() {
                     </button>
                 </div>
             </span>
+            </>}
+
         </div>
     )
 }

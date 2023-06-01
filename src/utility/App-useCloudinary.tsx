@@ -23,6 +23,7 @@ function App_UseCloudinary() {
   } = useCloudinary();
   return (
     <ThemeProvider>
+        <p>Upload images to cloudinary</p>
       <Container>
         <Grid container sx={{ justifyContent: "center" }}>
           <Grid item md={6} xs={12}>

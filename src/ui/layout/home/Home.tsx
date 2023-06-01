@@ -23,12 +23,12 @@ export default function Home({app}) {
         <SettingsButton app={app}/><br/><br/><br/>
         <div class='flex-container'>
             <ChartJSStreaming/>
-            <MultiLineChart/>
+            {/* <MultiLineChart/> */}
         </div>
         <FaceExpressionRecognitionWebcam/>
-        <FaceAPIExpressionDemo /> 
-        <ImageCompress/>
-        <App_UseCloudinary/>
+        <FaceAPIExpressionDemo /><br/><br/> 
+        <ImageCompress/><br/><br/>
+        <App_UseCloudinary/><br/><br/> 
         <Home_Cloudinary/>
         <DropImage/>
         <ViewWidth/>
